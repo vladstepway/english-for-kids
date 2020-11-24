@@ -10,8 +10,52 @@
 <body>
     <div class="root">
         <div class="app-container">
-            <header class="header__container">Header</header>
-            <main class="main__container">Main</main>
+            <div id="loader-wrapper">
+                <div id="loader"></div>
+                <div class="loader-section section-left color-change-5x"></div>
+                <div class="loader-section section-right color-change-5x"></div>
+            </div>
+            <header class="header__container  color-change-5x">
+                <nav class="navigation">
+                    <div class="navigation__toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </nav>
+                <ul class="menu">
+                    <li class="menu__item"><a href="#" class="menu__link">Item1</a></li>
+                    <li class="menu__item"><a href="#" class="menu__link">Item2</a></li>
+                    <li class="menu__item"><a href="#" class="menu__link">Item3</a></li>
+                </ul>
+                <h1 class="logo">FoxyLang </h1>
+                <div class="header-buttons">
+                    <div class="switch">
+                        <button class="switch__button">Train</button>
+                    </div>
+                    <div class="stats">
+                        <button class="stats__button">Stats</button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="main__container">
+                <div class="cards__container">
+                    <div class="card__category"></div>
+                    <!-- <div class="card">
+                        <div class="card__front">
+                            <div class="card__image"></div>
+                            <div class="card__info"></div>
+                        </div>
+                        <div class="card__back">
+                            <div class="card__image"></div>
+                            <div class="card__info"></div>
+                        </div>
+                    </div> -->
+                </div>
+            </main>
+            <div class="overlay"></div>
         </div>
     </div>
 </body>
