@@ -1,0 +1,13 @@
+[
+  [
+    "Emotions"
+  ],
+  [
+    {
+      "word": "cry",
+      "translation": "плакать",
+      "image": "img/cry.jpg",
+      "audioSrc": "audio/cry.mp3"
+    }
+  ]
+]
