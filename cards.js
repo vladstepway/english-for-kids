@@ -3,7 +3,7 @@
     {
       "name": "Action (set A)",
       "id": "action-a",
-      "imgUrl": "./assets/images/categories/cat.png"
+      "imgUrl": "../../../assets/images/categories/cat.png"
     },
     {
       "name": "Action (set B)",
