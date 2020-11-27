@@ -8,37 +8,37 @@
     {
       "name": "Action (set B)",
       "id": "action-b",
-      "imgUrl": "./assets/images/categories/cat.png"
+      "imgUrl": "images/categories/cat.png"
     },
     {
       "name": "Animal (set A)",
       "id": "animal-a",
-      "imgUrl": "./assets/images/categories/cat.png"
+      "imgUrl": "images/categories/cat.png"
     },
     {
       "name": "Animal (set B)",
       "id": "action-b",
-      "imgUrl": "./assets/images/categories/cat.png"
+      "imgUrl": "images/categories/cat.png"
     },
     {
       "name": "Clothes",
       "id": "clothes",
-      "imgUrl": "./assets/images/categories/cat.png"
+      "imgUrl": "images/categories/cat.png"
     },
     {
       "name": "Emotions",
       "id": "action-a",
-      "imgUrl": "./assets/images/categories/cat.png"
+      "imgUrl": "images/categories/cat.png"
     },
     {
       "name": "Action (set A)",
       "id": "action-a",
-      "imgUrl": "./assets/images/categories/cat.png"
+      "imgUrl": "images/categories/cat.png"
     },
     {
       "name": "Action (set A)",
       "id": "action-a",
-      "imgUrl": "./assets/images/categories/cat.png"
+      "imgUrl": "images/categories/cat.png"
     }
   ],
   [
