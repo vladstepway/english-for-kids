@@ -331,15 +331,40 @@ html {
 }
 
 .main__container {
-  color: whitesmoke;
   background-color: PapayaWhip;
-  height: 100vh;
-  padding: 6.6rem 13rem;
+  margin: 0 auto;
+  padding: 6.6rem 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .cards__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.card__category {
+  background-color: white;
+  margin: 1rem;
+}
+
+.card__category .item-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=style.css.map */

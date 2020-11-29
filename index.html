@@ -29,10 +29,22 @@
                     <li class="menu__item"><a href="#" class="menu__link">Item2</a></li>
                     <li class="menu__item"><a href="#" class="menu__link">Item3</a></li>
                 </ul>
-                <h1 class="logo">FoxyLang </h1>
+                <img class="logo" src="/media/icons/logo.png" alt="logo">
                 <div class="header-buttons">
-                    <div class="switch">
-                        <button class="switch__button">Train</button>
+                    <div class="toggle-wrapper">
+                        <div class="toggle dog-rollover">
+                            <input id="doggo" type="checkbox" />
+                            <label class="toggle-item" for="doggo">
+                                <div class="dog">
+                                    <div class="ear"></div>
+                                    <div class="ear right"></div>
+                                    <div class="face">
+                                        <div class="eyes"></div>
+                                        <div class="mouth"></div>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
                     </div>
                     <div class="stats">
                         <button class="stats__button">Stats</button>
@@ -41,8 +53,7 @@
             </header>
 
             <main class="main__container">
-                
-                    <!-- <div class="card">
+                <!-- <div class="card">
                         <div class="card__front">
                             <div class="card__image"></div>
                             <div class="card__info"></div>

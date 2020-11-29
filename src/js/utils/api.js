@@ -19,16 +19,15 @@ export function fetchCards() {
   return response;
 }
 
-export const fetchCategories = async () => {
+const fetchCategories = async () => {
   return fetch(api.URL).then((res) => {
     return res.json();
   });
 };
 
-// export const getCategories = () => {
-//   fetchCategories().then((data) => data);
-//   // return getFetchedData(fetchCategories);
-// };
+export const getCategories = () => {
+  return fetchCategories().then((data) => data);
+};
 
 // const getFetchedData = (fetchType) => {
 //   console.log(fetchType);

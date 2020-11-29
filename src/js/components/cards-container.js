@@ -1,4 +1,4 @@
-import { fetchCategories } from '../utils/api';
+import { getCategories } from '../utils/api';
 
 export default class CardsContainer {
   constructor(settings) {
@@ -6,7 +6,7 @@ export default class CardsContainer {
   }
 
   load = () => {
-    return fetchCategories()
+    return getCategories()
       .then((data) => {
         return data;
       })
