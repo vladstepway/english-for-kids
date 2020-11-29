@@ -15,25 +15,23 @@ export default class Menu {
     const cards = new CardsContainer();
     cards.load().then((res) => {
       const cardsCategories = res[0];
-      console.log(cardsCategories);
       for (let i = 0; i < cardsCategories.length; i++) {
         this.categories.push(
           create(
             'div',
             'card__category',
-            create('div', '', [
-              create('div', 'name', cardsCategories[i].name),
+            create('div', 'item-container', [
               create('img', 'image', '', '', [
                 'src',
                 cardsCategories[i].imgUrl,
               ]),
+              create('div', 'name', cardsCategories[i].name),
             ]),
             this.cardsContainer,
             ['id', cardsCategories[i].id]
           )
         );
       }
-      console.log(this.cardsContainer);
     });
   };
 }

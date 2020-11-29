@@ -1,13 +1,16 @@
-// $primary-background-gradient: linear-gradient(
-//   90deg,
-//   rgba(131, 58, 180, 1) 0%,
-//   rgba(253, 29, 29, 1) 50%,
-//   rgba(252, 176, 69, 1) 100%
-// );
-$primary-background-gradient: PapayaWhip;
+$primary-background-gradient: linear-gradient(
+  10deg,
+  rgba(129, 110, 198, 1) 0%,
+  rgba(158, 141, 218, 1) 100%
+);
 $secondary-background-gradient: radial-gradient(
   circle farthest-corner at 10% 20%,
   rgba(255, 229, 168, 1) 0%,
   rgba(251, 174, 222, 1) 100.7%
 );
 $base-font-size: 10px;
+
+$tablet-width-intermediate: 1024px;
+$tablet-width: 767px;
+$mobile-width-intermediate: 575px;
+$mobile-width: 320px;
