@@ -24,7 +24,7 @@ const fetchCategories = async () => {
 };
 
 const fetchCategoryItems = async (categoryId) => {
-  return fetch(api.URL).then((res) => res.json());
+  return fetch(api.URL).then((res) => console.log(categoryId, res.json()));
 };
 
 export const getCategories = () => {
