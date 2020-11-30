@@ -1,11 +1,11 @@
-import { getCategories } from '../utils/api';
+import { getCategories, getCategoryItems } from '../utils/api';
 
 export default class CardsContainer {
   constructor(settings) {
     this.settings = settings;
   }
 
-  load = () => {
+  loadCategories = () => {
     return getCategories()
       .then((data) => {
         return data;
@@ -13,5 +13,9 @@ export default class CardsContainer {
       .catch((err) => {
         throw err;
       });
+  };
+
+  loadCategoryItems = (categoryId) => {
+    getCategoryItems(categoryId);
   };
 }
