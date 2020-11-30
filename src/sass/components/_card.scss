@@ -1,15 +1,16 @@
 .cards__container {
   display: flex;
   flex-wrap: wrap;
-}
+  justify-content: center;
 
-.card__category {
-  background-color: white;
-  margin: 1rem;
-  .item-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .card__category {
+    background-color: white;
+    margin: 1rem;
+    .item-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
