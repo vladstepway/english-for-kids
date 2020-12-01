@@ -1,6 +1,5 @@
 export default class CardItem {
-    constructor() {
-  
-    }
+  constructor(item) {
+    this.item = item;
   }
-  
+}
