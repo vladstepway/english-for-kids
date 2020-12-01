@@ -7,15 +7,13 @@ export default class CardsContainer {
 
   loadCategories = () => {
     return getCategories()
-      .then((data) => {
-        return data;
-      })
+      .then((data) => data)
       .catch((err) => {
         throw err;
       });
   };
 
   loadCategoryItems = (categoryId) => {
-    getCategoryItems(categoryId);
+    return getCategoryItems(categoryId).then((data) => data[0]);
   };
 }

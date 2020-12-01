@@ -7,3 +7,19 @@
 html {
   font-size: $base-font-size;
 }
+
+.overlay {
+  display: none;
+  transition: 0.3s ease;
+
+  &.active {
+    display: block;
+    height: calc(100vh + 0px);
+    width: calc(100vw + 0px);
+    background: #00000088;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+  }
+}
