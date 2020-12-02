@@ -88,9 +88,9 @@
         {
           "word": "Cry",
           "translation": "Плакать",
-          "imgUrl": "./media/images/emotions/сry.png",
-          "enSoundUrl": "./media/sounds/emotions/en/сry.mp3",
-          "ruSoundUrl": "./media/sounds/emotions/ru/сry.mp3"
+          "imgUrl": "./media/images/emotions/cry.png",
+          "enSoundUrl": "./media/sounds/emotions/en/cry.mp3",
+          "ruSoundUrl": "./media/sounds/emotions/ru/cry.mp3"
         },
         {
           "word": "Smile",
@@ -320,65 +320,65 @@
         {
           "word": "Bear",
           "translation": "Медведь",
-          "imgUrl": "./media/images/fairy-tales/bear.png",
-          "enSoundUrl": "./media/sounds/fairy-tales/en/bear.mp3",
-          "ruSoundUrl": "./media/sounds/fairy-tales/ru/bear.mp3"
+          "imgUrl": "./media/images/animals/bear.png",
+          "enSoundUrl": "./media/sounds/animals/en/bear.mp3",
+          "ruSoundUrl": "./media/sounds/animals/ru/bear.mp3"
         },
         {
           "word": "Beaver",
           "translation": "Бобёр",
-          "imgUrl": "./media/images/fairy-tales/beaver.png",
-          "enSoundUrl": "./media/sounds/fairy-tales/en/beaver.mp3",
-          "ruSoundUrl": "./media/sounds/fairy-tales/ru/beaver.mp3"
+          "imgUrl": "./media/images/animals/beaver.png",
+          "enSoundUrl": "./media/sounds/animals/en/beaver.mp3",
+          "ruSoundUrl": "./media/sounds/animals/ru/beaver.mp3"
         },
         {
           "word": "Deer",
           "translation": "Олень",
-          "imgUrl": "./media/images/fairy-tales/deer.png",
-          "enSoundUrl": "./media/sounds/fairy-tales/en/deer.mp3",
-          "ruSoundUrl": "./media/sounds/fairy-tales/ru/deer.mp3"
+          "imgUrl": "./media/images/animals/deer.png",
+          "enSoundUrl": "./media/sounds/animals/en/deer.mp3",
+          "ruSoundUrl": "./media/sounds/animals/ru/deer.mp3"
         },
         {
           "word": "Dolphin",
           "translation": "Дельфин",
-          "imgUrl": "./media/images/fairy-tales/dolphin.png",
-          "enSoundUrl": "./media/sounds/fairy-tales/en/dolphin.mp3",
-          "ruSoundUrl": "./media/sounds/fairy-tales/ru/dolphin.mp3"
+          "imgUrl": "./media/images/animals/dolphin.png",
+          "enSoundUrl": "./media/sounds/animals/en/dolphin.mp3",
+          "ruSoundUrl": "./media/sounds/animals/ru/dolphin.mp3"
         },
         {
           "word": "Duck",
           "translation": "Утёнок",
-          "imgUrl": "./media/images/fairy-tales/duck.png",
-          "enSoundUrl": "./media/sounds/fairy-tales/en/duck.mp3",
-          "ruSoundUrl": "./media/sounds/fairy-tales/ru/duck.mp3"
+          "imgUrl": "./media/images/animals/duck.png",
+          "enSoundUrl": "./media/sounds/animals/en/duck.mp3",
+          "ruSoundUrl": "./media/sounds/animals/ru/duck.mp3"
         },
         {
           "word": "Ferret",
           "translation": "Хорёк",
-          "imgUrl": "./media/images/fairy-tales/ferret.png",
-          "enSoundUrl": "./media/sounds/fairy-tales/en/ferret.mp3",
-          "ruSoundUrl": "./media/sounds/fairy-tales/ru/ferret.mp3"
+          "imgUrl": "./media/images/animals/ferret.png",
+          "enSoundUrl": "./media/sounds/animals/en/ferret.mp3",
+          "ruSoundUrl": "./media/sounds/animals/ru/ferret.mp3"
         },
         {
           "word": "Fox",
           "translation": "Лиса",
-          "imgUrl": "./media/images/fairy-tales/fox.png",
-          "enSoundUrl": "./media/sounds/fairy-tales/en/fox.mp3",
-          "ruSoundUrl": "./media/sounds/fairy-tales/ru/fox.mp3"
+          "imgUrl": "./media/images/animals/fox.png",
+          "enSoundUrl": "./media/sounds/animals/en/fox.mp3",
+          "ruSoundUrl": "./media/sounds/animals/ru/fox.mp3"
         },
         {
           "word": "Moose",
           "translation": "Лось",
-          "imgUrl": "./media/images/fairy-tales/moose.png",
-          "enSoundUrl": "./media/sounds/fairy-tales/en/moose.mp3",
-          "ruSoundUrl": "./media/sounds/fairy-tales/ru/moose.mp3"
+          "imgUrl": "./media/images/animals/moose.png",
+          "enSoundUrl": "./media/sounds/animals/en/moose.mp3",
+          "ruSoundUrl": "./media/sounds/animals/ru/moose.mp3"
         },
         {
           "word": "Squirrel",
           "translation": "Белочка",
-          "imgUrl": "./media/images/fairy-tales/squirrel.png",
-          "enSoundUrl": "./media/sounds/fairy-tales/en/squirrel.mp3",
-          "ruSoundUrl": "./media/sounds/fairy-tales/ru/squirrel.mp3"
+          "imgUrl": "./media/images/animals/squirrel.png",
+          "enSoundUrl": "./media/sounds/animals/en/squirrel.mp3",
+          "ruSoundUrl": "./media/sounds/animals/ru/squirrel.mp3"
         }
       ]
     },
