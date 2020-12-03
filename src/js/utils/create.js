@@ -1,4 +1,4 @@
-export default function create(el, classNames, children, parent, ...dataAttr) {
+export const create = (el, classNames, children, parent, ...dataAttr) => {
   let element = null;
   try {
     element = document.createElement(el);
@@ -38,4 +38,10 @@ export default function create(el, classNames, children, parent, ...dataAttr) {
     });
   }
   return element;
-}
+};
+
+export const removeChildren = (element) => {
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+};

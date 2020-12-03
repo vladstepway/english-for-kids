@@ -1,4 +1,4 @@
-import create from '../utils/create';
+import { create, removeChildren } from '../utils/create';
 import CardsContainer from './cards-container';
 import CategoryItem from './category-item';
 import * as storage from '../utils/storage';
@@ -8,6 +8,7 @@ export default class Menu {
   constructor({ loader, mode }) {
     this.loader = loader;
     this.mode = mode;
+    // this.router = router;
   }
 
   init = () => {
@@ -17,6 +18,9 @@ export default class Menu {
     this.categories = [];
     this.categoryItems = [];
     this.currentItems = [];
+    const buttons = document.querySelector('.header-buttons');
+    const toggleSwitch = buttons.firstElementChild;
+    toggleSwitch.addEventListener('click', this.switchMode);
 
     const navigation = document.querySelector('.navigation');
     navigation.addEventListener(
@@ -40,6 +44,24 @@ export default class Menu {
       });
   };
 
+  switchMode = (e) => {
+    if (e.target === document.querySelector('#doggo')) {
+      this.mode = e.target.checked ? 'play' : 'train';
+    }
+    if (document.querySelector('.card')) {
+      const cards = document.querySelectorAll('.card');
+      if (this.mode === 'play') {
+        cards.forEach((c) =>
+          c.firstElementChild.lastElementChild.classList.add('hide')
+        );
+      } else {
+        cards.forEach((c) =>
+          c.firstElementChild.lastElementChild.classList.remove('hide')
+        );
+      }
+    }
+  };
+
   openHamburger = (nav) => {
     const menu = document.querySelector('.menu');
     const overlay = document.querySelector('.overlay');
@@ -60,7 +82,7 @@ export default class Menu {
       this.categoryItems.forEach((c) => {
         const menuLink = create('a', 'menu__link', c.name, '', [
           'href',
-          `/${c.id}`,
+          `/#/${c.id}`,
         ]);
         menuLink.setAttribute('data-background', `url(${c.imgUrl})`);
         create('li', 'menu__item', menuLink, menu);
@@ -71,20 +93,27 @@ export default class Menu {
   createCategories = (cardsCategories, cards) => {
     for (let i = 0; i < cardsCategories.length; i++) {
       const currentCategory = cardsCategories[i];
+      // this.router.addRoute(`/#/${currentCategory.id}`);
       const categoryCard = create(
         'div',
         'card__category',
-        create('div', 'item-container', [
-          create(
-            'img',
-            'image',
-            '',
-            '',
-            ['src', currentCategory.imgUrl],
-            ['alt', currentCategory.id]
-          ),
-          create('div', 'name', currentCategory.name),
-        ]),
+        create(
+          'div',
+          '',
+          [
+            create(
+              'img',
+              'image',
+              '',
+              '',
+              ['src', currentCategory.imgUrl],
+              ['alt', currentCategory.id]
+            ),
+            create('div', 'name', currentCategory.name),
+          ],
+          ''
+          // ['href', `${currentCategory.id}`]
+        ),
         this.cardsContainer,
         ['id', currentCategory.id]
       );
@@ -101,7 +130,9 @@ export default class Menu {
   chooseCategory = ({ cards, categoryItem }) => {
     cards.loadCategoryItems(categoryItem.id).then((res) => {
       this.loader.show();
-      // const cardContainer = document.querySelector('.cards__container');
+      const cardContainer = document.querySelector('.cards__container');
+      removeChildren(cardContainer);
+      console.log(cardContainer);
       // cardContainer.childNodes = '';
       // console.log(cardContainer.children);
       this.createCards(res.items, categoryItem);
@@ -112,7 +143,7 @@ export default class Menu {
   createCards = (cards, categoryItem) => {
     for (let i = 0; i < cards.length; i++) {
       const currentCard = cards[i];
-      const card = create(
+      create(
         'div',
         'card',
         [
@@ -121,14 +152,27 @@ export default class Menu {
             'card__front',
             [
               create(
-                'div',
+                'img',
                 'card__image',
                 '',
                 '',
                 ['src', currentCard.imgUrl],
                 ['alt', currentCard.word.toLowerCase()]
               ),
-              create('div', 'card__info', '', ''),
+              create(
+                'div',
+                `${this.mode === 'train' ? 'card__info' : 'card__info hide'}`,
+                [
+                  create('div', 'info__translation', [
+                    create('img', 'translation__icon', '', '', ['src', 'icon']),
+                  ]),
+                  create('div', 'info__word', currentCard.word),
+                  create('div', 'info__sound', [
+                    create('img', 'sound__icon', '', '', ['src', 'icon']),
+                  ]),
+                ],
+                ''
+              ),
             ],
             ''
           ),
@@ -137,7 +181,7 @@ export default class Menu {
             'card__back',
             [
               create(
-                'div',
+                'img',
                 'card__image',
                 '',
                 '',
@@ -152,7 +196,6 @@ export default class Menu {
         this.cardsContainer,
         ['id', currentCard.word.toLowerCase()]
       );
-      console.log(card);
       const cardItem = new CardItem(currentCard);
       categoryItem.addCard(cardItem);
       this.currentItems.push(cardItem);
