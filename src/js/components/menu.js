@@ -84,7 +84,6 @@ export default class Menu {
           'href',
           `/#/${c.id}`,
         ]);
-        menuLink.setAttribute('data-background', `url(${c.imgUrl})`);
         create('li', 'menu__item', menuLink, menu);
       });
     }
@@ -146,6 +145,8 @@ export default class Menu {
   createCards = (cards, categoryItem) => {
     for (let i = 0; i < cards.length; i++) {
       const currentCard = cards[i];
+      const transformButton = create('button', 'transform-button', 'check');
+      transformButton.addEventListener('click', this.showTranslation);
       create(
         'div',
         'card',
@@ -155,20 +156,24 @@ export default class Menu {
             'card__front',
             [
               create(
-                'img',
-                'card__image',
-                '',
-                '',
-                ['src', currentCard.imgUrl],
-                ['alt', currentCard.word.toLowerCase()]
+                'div',
+                'image__wrapper color-change-border',
+                create(
+                  'img',
+                  'card__image',
+                  '',
+                  '',
+                  ['src', currentCard.imgUrl],
+                  ['alt', currentCard.word.toLowerCase()]
+                ),
+                ''
               ),
+
               create(
                 'div',
                 `${this.mode === 'train' ? 'card__info' : 'card__info hide'}`,
                 [
-                  create('div', 'info__translation', [
-                    create('img', 'translation__icon', '', '', ['src', 'icon']),
-                  ]),
+                  create('div', 'info__translation', [transformButton]),
                   create('div', 'info__word', currentCard.word),
                   create('div', 'info__sound', [
                     create('img', 'sound__icon', '', '', ['src', 'icon']),
@@ -203,5 +208,9 @@ export default class Menu {
       categoryItem.addCard(cardItem);
       this.currentItems.push(cardItem);
     }
+  };
+
+  showTranslation = (e) => {
+    console.log(e);
   };
 }
