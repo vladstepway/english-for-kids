@@ -1,9 +1,11 @@
 export default function Loader() {
   Loader.prototype.show = () => {
-    window.addEventListener('load', () => {
-      if (document.readyState === 'complete') {
-        document.body.classList.add('loaded');
-      }
-    });
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () =>
+        document.body.classList.add('loaded')
+      );
+    } else {
+      document.body.classList.add('loaded');
+    }
   };
 }

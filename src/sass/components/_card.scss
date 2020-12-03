@@ -13,4 +13,19 @@
       align-items: center;
     }
   }
+
+  .card {
+    background-color: white;
+    margin: 1rem;
+    &__front {
+      .card__info {
+        &.hide {
+          visibility: hidden;
+        }
+      }
+    }
+    &__back {
+      display: none;
+    }
+  }
 }
