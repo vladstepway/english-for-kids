@@ -97,23 +97,26 @@ export default class Menu {
       const categoryCard = create(
         'div',
         'card__category',
-        create(
-          'div',
-          '',
-          [
-            create(
-              'img',
-              'image',
+        [
+          create(
+            'div',
+            'image__wrapper color-change-border',
+            [
+              create(
+                'img',
+                'image',
+                '',
+                '',
+                ['src', currentCategory.imgUrl],
+                ['alt', currentCategory.id]
+              ),
               '',
-              '',
-              ['src', currentCategory.imgUrl],
-              ['alt', currentCategory.id]
-            ),
-            create('div', 'name', currentCategory.name),
-          ],
-          ''
-          // ['href', `${currentCategory.id}`]
-        ),
+            ],
+            ''
+            // ['href', `${currentCategory.id}`]
+          ),
+          create('div', 'name', currentCategory.name),
+        ],
         this.cardsContainer,
         ['id', currentCategory.id]
       );
