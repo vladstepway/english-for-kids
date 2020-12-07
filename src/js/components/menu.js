@@ -46,8 +46,10 @@ export default class Menu {
 
   switchMode = (e) => {
     if (e.target === document.querySelector('#doggo')) {
+      this.playSound('./media/sounds/switch.mp3');
       this.mode = e.target.checked ? 'play' : 'train';
     }
+
     if (document.querySelector('.card')) {
       const cards = document.querySelectorAll('.card');
       if (this.mode === 'play') {
@@ -155,10 +157,6 @@ export default class Menu {
         ['src', './media/icons/flip.png'],
       );
 
-      flipButton.addEventListener(
-        'click',
-        this.showTranslation.bind(this, currentCard.ruSoundUrl),
-      );
       const imageWrapper = create(
         'div',
         'image__wrapper color-change-border',
@@ -226,16 +224,18 @@ export default class Menu {
         this.cardsContainer,
         ['id', currentCard.word.split(' ').join('-').toLowerCase()],
       );
-      if (this.mode === 'train') {
-        imageWrapper.addEventListener(
-          'click',
-          this.playSound.bind(this, currentCard.enSoundUrl),
-        );
-        translationSound.addEventListener(
-          'click',
-          this.playSound.bind(this, currentCard.ruSoundUrl),
-        );
-      }
+      imageWrapper.addEventListener(
+        'click',
+        this.playSound.bind(this, currentCard.enSoundUrl),
+      );
+      translationSound.addEventListener(
+        'click',
+        this.playSound.bind(this, currentCard.ruSoundUrl),
+      );
+      flipButton.addEventListener(
+        'click',
+        this.showTranslation.bind(this, currentCard.ruSoundUrl),
+      );
       const cardItem = new CardItem(currentCard);
       categoryItem.addCard(cardItem);
       this.currentItems.push(cardItem);
@@ -253,7 +253,7 @@ export default class Menu {
   };
 
   playSound = (src) => {
-    if (this.mode === 'train') {
+    if ((this.mode !== 'play' && src.includes('en')) || src.includes('ru')) {
       const audio = new Audio(src);
       audio.autoplay = true;
     }
