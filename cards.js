@@ -102,9 +102,9 @@
         {
           "word": "Laugh",
           "translation": "Смех",
-          "imgUrl": "./media/images/emotions/laughing.png",
-          "enSoundUrl": "./media/sounds/emotions/en/laughing.mp3",
-          "ruSoundUrl": "./media/sounds/emotions/ru/laughing.mp3"
+          "imgUrl": "./media/images/emotions/laugh.png",
+          "enSoundUrl": "./media/sounds/emotions/en/laugh.mp3",
+          "ruSoundUrl": "./media/sounds/emotions/ru/laugh.mp3"
         }
       ]
     },
@@ -119,11 +119,11 @@
           "ruSoundUrl": "./media/sounds/countries/ru/china.mp3"
         },
         {
-          "word": "Great Britain",
-          "translation": "Великобритания",
-          "imgUrl": "./media/images/countries/united-kingdom.png",
-          "enSoundUrl": "./media/sounds/countries/en/united-kingdom.mp3",
-          "ruSoundUrl": "./media/sounds/countries/ru/united-kingdom.mp3"
+          "word": "Spain",
+          "translation": "Испания",
+          "imgUrl": "./media/images/countries/spain.png",
+          "enSoundUrl": "./media/sounds/countries/en/spain.mp3",
+          "ruSoundUrl": "./media/sounds/countries/ru/spain.mp3"
         },
         {
           "word": "France",
@@ -161,11 +161,11 @@
           "ruSoundUrl": "./media/sounds/countries/ru/mexico.mp3"
         },
         {
-          "word": "South Africa",
-          "translation": "ЮАР",
-          "imgUrl": "./media/images/countries/south-africa.png",
-          "enSoundUrl": "./media/sounds/countries/en/south-africa.mp3",
-          "ruSoundUrl": "./media/sounds/countries/ru/south-africa.mp3"
+          "word": "Netherlands",
+          "translation": "Нидерланды",
+          "imgUrl": "./media/images/countries/netherlands.png",
+          "enSoundUrl": "./media/sounds/countries/en/netherlands.mp3",
+          "ruSoundUrl": "./media/sounds/countries/ru/netherlands.mp3"
         },
         {
           "word": "Brazil",
@@ -175,7 +175,7 @@
           "ruSoundUrl": "./media/sounds/countries/ru/brazil.mp3"
         },
         {
-          "word": "German",
+          "word": "Germany",
           "translation": "Германия",
           "imgUrl": "./media/images/countries/germany.png",
           "enSoundUrl": "./media/sounds/countries/en/germany.mp3",
@@ -437,9 +437,9 @@
         {
           "word": "Sun",
           "translation": "Солнце",
-          "imgUrl": "./media/images/weather/sunny.png",
-          "enSoundUrl": "./media/sounds/weather/en/sunny.mp3",
-          "ruSoundUrl": "./media/sounds/weather/ru/sunny.mp3"
+          "imgUrl": "./media/images/weather/sun.png",
+          "enSoundUrl": "./media/sounds/weather/en/sun.mp3",
+          "ruSoundUrl": "./media/sounds/weather/ru/sun.mp3"
         },
         {
           "word": "Umbrella",
@@ -486,7 +486,7 @@
           "translation": "Чёрт",
           "imgUrl": "./media/images/halloween/devil.png",
           "enSoundUrl": "./media/sounds/halloween/en/devil.mp3",
-          "ruSoundUrl": "./media/sounds/halloween/ru/candies.mp3"
+          "ruSoundUrl": "./media/sounds/halloween/ru/devil.mp3"
         },
         {
           "word": "Ghost",
@@ -614,7 +614,7 @@
         },
         {
           "word": "Watermelon",
-          "translation": "Суши",
+          "translation": "Арбуз",
           "imgUrl": "./media/images/food/watermelon.png",
           "enSoundUrl": "./media/sounds/food/en/watermelon.mp3",
           "ruSoundUrl": "./media/sounds/food/ru/watermelon.mp3"

@@ -6,40 +6,93 @@
 
   .card__category {
     margin: 1rem;
-
-    // .item-container {
-    //   display: flex;
-    //   flex-direction: column;
-    //   justify-content: center;
-    //   align-items: center;
-    // }
     .image__wrapper {
       background-color: white;
       border-radius: 50%;
       border: 4px solid;
     }
+    .name {
+      padding-top: 1rem;
+      font-size: 1.6rem;
+      color: white;
+      text-align: center;
+    }
   }
 
   .card {
     // background-color: white;
-    margin: 1rem;
+    margin: 3rem;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    transition: 0.5s;
+    z-index: 1;
+    &__front,
+    &__back {
+      backface-visibility: hidden;
+    }
     &__front {
+      position: absolute;
+      height: 100%;
+      transform: rotateX(0deg);
       .image__wrapper {
         background-color: white;
         border-radius: 50%;
         border: 4px solid;
       }
       .card__info {
-        .transform-button {
-          background-color: white;
+        display: flex;
+        justify-content: space-around;
+        padding-top: 1rem;
+        .info__word {
+          font-size: 1.6rem;
+          color: white;
+        }
+        .flip-button {
+          // background-color: white;
+          // outline: none;
         }
         &.hide {
           visibility: hidden;
         }
       }
+      &.hide {
+        // visibility: hidden;
+        opacity: 0;
+        transition: 0.5s ease;
+      }
     }
     &__back {
-      display: none;
+      transform: rotateY(180deg);
+      .image__wrapper {
+        background-color: white;
+        border-radius: 50%;
+        border: 4px solid;
+      }
+      .card__info {
+        .info__word {
+          padding-top: 1rem;
+          font-size: 1.6rem;
+          color: white;
+          text-align: center;
+        }
+      }
     }
+    &.flip {
+      // animation: flip 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+      transform: rotateY(180deg);
+    }
+  }
+}
+
+.flip {
+  animation: flip 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+}
+
+@keyframes flip {
+  0% {
+    transform: translateZ(0) rotateY(0);
+  }
+  100% {
+    transform: translateZ(160px) rotateY(180deg);
   }
 }

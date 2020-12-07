@@ -11,7 +11,7 @@ export const create = (el, classNames, children, parent, ...dataAttr) => {
 
   if (children && Array.isArray(children)) {
     children.forEach(
-      (childElement) => childElement && element.appendChild(childElement)
+      (childElement) => childElement && element.appendChild(childElement),
     );
   } else if (children && typeof children === 'object') {
     element.appendChild(children);
@@ -28,7 +28,7 @@ export const create = (el, classNames, children, parent, ...dataAttr) => {
       }
       if (
         attrName.match(
-          /value|placeholder|cols|rows|autocorrect|spellcheck|src|alt|draggable|selected|name|href/
+          /value|placeholder|cols|rows|autocorrect|spellcheck|src|alt|draggable|selected|name|href/,
         )
       ) {
         element.setAttribute(attrName, attrValue);
