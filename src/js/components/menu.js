@@ -23,12 +23,12 @@ export default class Menu {
     toggleSwitch.addEventListener('click', this.switchMode);
 
     const navigation = document.querySelector('.navigation');
-    navigation.addEventListener(
-      'click',
-      this.openHamburger.bind(this, navigation)
-    );
 
     const cards = new CardsContainer();
+    navigation.addEventListener(
+      'click',
+      this.openHamburger.bind(this, navigation, cards),
+    );
     cards
       .loadCategories()
       .then((res) => {
@@ -52,39 +52,43 @@ export default class Menu {
       const cards = document.querySelectorAll('.card');
       if (this.mode === 'play') {
         cards.forEach((c) =>
-          c.firstElementChild.lastElementChild.classList.add('hide')
+          c.firstElementChild.lastElementChild.classList.add('hide'),
         );
       } else {
         cards.forEach((c) =>
-          c.firstElementChild.lastElementChild.classList.remove('hide')
+          c.firstElementChild.lastElementChild.classList.remove('hide'),
         );
       }
     }
   };
 
-  openHamburger = (nav) => {
+  openHamburger = (nav, cards) => {
     const menu = document.querySelector('.menu');
-    const overlay = document.querySelector('.overlay');
     if (nav.firstElementChild.classList[1] === 'open') {
-      nav.firstElementChild.classList.remove('open');
-      menu.classList.remove('open');
-      overlay.classList.remove('active');
+      this.toggleHamburger(nav, menu);
     } else {
-      this.createLinks(menu);
-      nav.firstElementChild.classList.add('open');
-      menu.classList.add('open');
-      overlay.classList.add('active');
+      this.createLinks(menu, cards);
+      this.toggleHamburger(nav, menu);
     }
   };
 
-  createLinks = (menu) => {
+  toggleHamburger = (nav, menu) => {
+    const overlay = document.querySelector('.overlay');
+
+    nav.firstElementChild.classList.toggle('open');
+    menu.classList.toggle('open');
+    overlay.classList.toggle('active');
+  };
+
+  createLinks = (menu, cards) => {
     if (menu.children.length === 0) {
-      this.categoryItems.forEach((c) => {
-        const menuLink = create('a', 'menu__link', c.name, '', [
-          'href',
-          `/#/${c.id}`,
-        ]);
-        create('li', 'menu__item', menuLink, menu);
+      this.categoryItems.forEach((categoryItem) => {
+        const menuLink = create('div', 'menu__link', categoryItem.name, '');
+        const menuItem = create('li', 'menu__item', menuLink, menu);
+        menuItem.addEventListener(
+          'click',
+          this.chooseCategory.bind(this, { cards, categoryItem }),
+        );
       });
     }
   };
@@ -107,23 +111,23 @@ export default class Menu {
                 '',
                 '',
                 ['src', currentCategory.imgUrl],
-                ['alt', currentCategory.id]
+                ['alt', currentCategory.id],
               ),
               '',
             ],
-            ''
+            '',
             // ['href', `${currentCategory.id}`]
           ),
           create('div', 'name', currentCategory.name),
         ],
         this.cardsContainer,
-        ['id', currentCategory.id]
+        ['id', currentCategory.id],
       );
       const categoryItem = new CategoryItem(currentCategory);
       this.categoryItems.push(categoryItem);
       categoryCard.addEventListener(
         'click',
-        this.chooseCategory.bind(this, { categoryItem, cards })
+        this.chooseCategory.bind(this, { cards, categoryItem }),
       );
       this.categories.push(categoryCard);
     }
@@ -134,9 +138,6 @@ export default class Menu {
       this.loader.show();
       const cardContainer = document.querySelector('.cards__container');
       removeChildren(cardContainer);
-      console.log(cardContainer);
-      // cardContainer.childNodes = '';
-      // console.log(cardContainer.children);
       this.createCards(res.items, categoryItem);
       storage.set('items', res);
     });
@@ -145,8 +146,36 @@ export default class Menu {
   createCards = (cards, categoryItem) => {
     for (let i = 0; i < cards.length; i++) {
       const currentCard = cards[i];
-      const transformButton = create('button', 'transform-button', 'check');
-      transformButton.addEventListener('click', this.showTranslation);
+      const flipButton = create(
+        'img',
+        'flip-button',
+        '',
+        '',
+        ['id', currentCard.word.split(' ').join('-').toLowerCase()],
+        ['src', './media/icons/flip.png'],
+      );
+
+      flipButton.addEventListener(
+        'click',
+        this.showTranslation.bind(this, currentCard.ruSoundUrl),
+      );
+      const imageWrapper = create(
+        'div',
+        'image__wrapper color-change-border',
+        create(
+          'img',
+          'card__image',
+          '',
+          '',
+          ['src', currentCard.imgUrl],
+          ['alt', currentCard.word.split(' ').join('-').toLowerCase()],
+        ),
+        '',
+      );
+      const translationSound = create('img', 'info__sound', '', '', [
+        'src',
+        './media/icons/rus.png',
+      ]);
       create(
         'div',
         'card',
@@ -155,62 +184,78 @@ export default class Menu {
             'div',
             'card__front',
             [
+              imageWrapper,
               create(
                 'div',
-                'image__wrapper color-change-border',
+                `${this.mode === 'train' ? 'card__info' : 'card__info hide'}`,
+                [
+                  create('div', 'info__translation', [flipButton]),
+                  create('div', 'info__word', currentCard.word),
+                  translationSound,
+                ],
+                '',
+              ),
+            ],
+            '',
+          ),
+          create(
+            'div',
+            'card__back',
+            [
+              create('div', 'image__wrapper color-change-border', [
                 create(
                   'img',
                   'card__image',
                   '',
                   '',
                   ['src', currentCard.imgUrl],
-                  ['alt', currentCard.word.toLowerCase()]
+                  ['alt', currentCard.word.split(' ').join('-').toLowerCase()],
                 ),
-                ''
-              ),
+              ]),
 
               create(
                 'div',
-                `${this.mode === 'train' ? 'card__info' : 'card__info hide'}`,
-                [
-                  create('div', 'info__translation', [transformButton]),
-                  create('div', 'info__word', currentCard.word),
-                  create('div', 'info__sound', [
-                    create('img', 'sound__icon', '', '', ['src', 'icon']),
-                  ]),
-                ],
-                ''
+                'card__info',
+                [create('div', 'info__word', currentCard.translation)],
+                '',
               ),
             ],
-            ''
-          ),
-          create(
-            'div',
-            'card__back',
-            [
-              create(
-                'img',
-                'card__image',
-                '',
-                '',
-                ['src', currentCard.imgUrl],
-                ['alt', currentCard.word.toLowerCase()]
-              ),
-              create('div', 'card__info', '', ''),
-            ],
-            ''
+            '',
           ),
         ],
         this.cardsContainer,
-        ['id', currentCard.word.toLowerCase()]
+        ['id', currentCard.word.split(' ').join('-').toLowerCase()],
       );
+      if (this.mode === 'train') {
+        imageWrapper.addEventListener(
+          'click',
+          this.playSound.bind(this, currentCard.enSoundUrl),
+        );
+        translationSound.addEventListener(
+          'click',
+          this.playSound.bind(this, currentCard.ruSoundUrl),
+        );
+      }
       const cardItem = new CardItem(currentCard);
       categoryItem.addCard(cardItem);
       this.currentItems.push(cardItem);
     }
   };
 
-  showTranslation = (e) => {
-    console.log(e);
+  showTranslation = (src, e) => {
+    const id = e.target.getAttribute('data-id');
+    const card = document.querySelector(`.card[data-id=${id}]`);
+    card.classList.add('flip');
+    this.playSound(src);
+    card.addEventListener('mouseleave', () => {
+      card.classList.remove('flip');
+    });
+  };
+
+  playSound = (src) => {
+    if (this.mode === 'train') {
+      const audio = new Audio(src);
+      audio.autoplay = true;
+    }
   };
 }

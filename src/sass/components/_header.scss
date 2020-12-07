@@ -65,14 +65,11 @@
       z-index: 6;
       width: 29rem;
       height: calc(100vh);
-      // height: calc(100vh + 2rem);
-      // margin: -9.5rem 0 0;
-      // padding: 4rem 0 5rem;
       padding-top: 46rem;
       left: -35.5rem;
       list-style-type: none;
       transition: 0.5s ease;
-      overflow: hidden scroll;
+      // overflow: hidden scroll;
       box-shadow: 5px 0px 10px #00000033;
       &__item {
         height: 60px;
