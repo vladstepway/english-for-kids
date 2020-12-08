@@ -41,7 +41,8 @@
         }
       }
       .open {
-        transform: translate(135px, 0px);
+        transform: translate(40px, 0px);
+        // @include media-tablet
         span {
           &:nth-child(1),
           &:nth-child(4) {
@@ -77,6 +78,7 @@
         margin: 0;
         padding-left: 65px;
         transition: 0.3s ease;
+       
       }
       &__link {
         color: #ffffff;
@@ -84,7 +86,9 @@
         font-size: 1.4rem;
         transition: 0.3s ease;
         text-transform: capitalize;
-
+        &:hover {
+          cursor: pointer;
+        }
         &::before {
           background-image: attr(data-background);
         }
@@ -119,4 +123,3 @@
     }
   }
 }
-
