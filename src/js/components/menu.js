@@ -46,19 +46,53 @@ export default class Menu {
 
   switchMode = (e) => {
     if (e.target === document.querySelector('#doggo')) {
+      this.playSound('./media/sounds/switch.mp3');
       this.mode = e.target.checked ? 'play' : 'train';
-    }
-    if (document.querySelector('.card')) {
-      const cards = document.querySelectorAll('.card');
-      if (this.mode === 'play') {
-        cards.forEach((c) =>
-          c.firstElementChild.lastElementChild.classList.add('hide'),
-        );
-      } else {
-        cards.forEach((c) =>
-          c.firstElementChild.lastElementChild.classList.remove('hide'),
-        );
+
+      if (document.querySelector('.card')) {
+        const cards = document.querySelectorAll('.card');
+        if (this.mode === 'play') {
+          cards.forEach((c) =>
+            c.firstElementChild.lastElementChild.classList.add('hide'),
+          );
+        } else {
+          cards.forEach((c) =>
+            c.firstElementChild.lastElementChild.classList.remove('hide'),
+          );
+        }
+        this.initializePlayMode();
       }
+    }
+  };
+
+  initializePlayMode = () => {
+    const mainContainer = document.querySelector('.main__container');
+    const startGameButton = create(
+      'button',
+      'start-game-button',
+      'Start',
+      mainContainer,
+    );
+
+    startGameButton.addEventListener(
+      'click',
+      this.startGame.bind(this, mainContainer),
+    );
+  };
+
+  startGame = (main) => {
+    create('button', 'repeat-sound-button', 'Repeat', main);
+    // const { items } = storage.get('items');
+    // const sounds = items.map((i) => i.enSoundUrl);
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card) =>
+      card.addEventListener('click', this.checkRightCard),
+    );
+  };
+
+  checkRightCard = (e) => {
+    if (e.target === 'card') {
+      console.log(e);
     }
   };
 
@@ -66,7 +100,9 @@ export default class Menu {
     const menu = document.querySelector('.menu');
     if (nav.firstElementChild.classList[1] === 'open') {
       this.toggleHamburger(nav, menu);
+      document.body.style.overflow = 'scroll';
     } else {
+      document.body.style.overflow = 'hidden';
       this.createLinks(menu, cards);
       this.toggleHamburger(nav, menu);
     }
@@ -155,10 +191,6 @@ export default class Menu {
         ['src', './media/icons/flip.png'],
       );
 
-      flipButton.addEventListener(
-        'click',
-        this.showTranslation.bind(this, currentCard.ruSoundUrl),
-      );
       const imageWrapper = create(
         'div',
         'image__wrapper color-change-border',
@@ -226,16 +258,18 @@ export default class Menu {
         this.cardsContainer,
         ['id', currentCard.word.split(' ').join('-').toLowerCase()],
       );
-      if (this.mode === 'train') {
-        imageWrapper.addEventListener(
-          'click',
-          this.playSound.bind(this, currentCard.enSoundUrl),
-        );
-        translationSound.addEventListener(
-          'click',
-          this.playSound.bind(this, currentCard.ruSoundUrl),
-        );
-      }
+      imageWrapper.addEventListener(
+        'click',
+        this.playSound.bind(this, currentCard.enSoundUrl),
+      );
+      translationSound.addEventListener(
+        'click',
+        this.playSound.bind(this, currentCard.ruSoundUrl),
+      );
+      flipButton.addEventListener(
+        'click',
+        this.showTranslation.bind(this, currentCard.ruSoundUrl),
+      );
       const cardItem = new CardItem(currentCard);
       categoryItem.addCard(cardItem);
       this.currentItems.push(cardItem);
@@ -253,9 +287,7 @@ export default class Menu {
   };
 
   playSound = (src) => {
-    if (this.mode === 'train') {
-      const audio = new Audio(src);
-      audio.autoplay = true;
-    }
+    const audio = new Audio(src);
+    audio.autoplay = true;
   };
 }

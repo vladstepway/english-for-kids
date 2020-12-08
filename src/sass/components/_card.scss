@@ -5,7 +5,7 @@
   justify-content: center;
 
   .card__category {
-    margin: 1rem;
+    margin: 4rem;
     .image__wrapper {
       background-color: white;
       border-radius: 50%;
@@ -33,7 +33,7 @@
     &__front {
       position: absolute;
       height: 100%;
-      transform: rotateX(0deg);
+      // transform: rotateX(0deg);
       .image__wrapper {
         background-color: white;
         border-radius: 50%;
@@ -56,13 +56,12 @@
         }
       }
       &.hide {
-        // visibility: hidden;
         opacity: 0;
         transition: 0.5s ease;
       }
     }
     &__back {
-      transform: rotateY(180deg);
+      animation: flip 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
       .image__wrapper {
         background-color: white;
         border-radius: 50%;
@@ -78,8 +77,8 @@
       }
     }
     &.flip {
-      // animation: flip 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
-      transform: rotateY(180deg);
+      animation: flip 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+      // transform: rotateY(180deg);
     }
   }
 }
